@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Funda.Common;
 using NUnit.Framework;
 
 namespace Funda.ApiClient.IntegrationTests

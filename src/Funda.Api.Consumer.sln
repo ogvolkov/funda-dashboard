@@ -3,11 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2047
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Funda.Api.Consumer", "Funda.Api.Consumer\Funda.Api.Consumer.csproj", "{2CCE6E4C-152C-43ED-84E0-C644C2E1A32B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Funda.Api.Consumer", "Funda.Api.Consumer\Funda.Api.Consumer.csproj", "{2CCE6E4C-152C-43ED-84E0-C644C2E1A32B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Funda.ApiClient", "Funda.ApiClient\Funda.ApiClient.csproj", "{CA88A7FF-5E75-45CF-909D-571ABC65AC3D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Funda.ApiClient", "Funda.ApiClient\Funda.ApiClient.csproj", "{CA88A7FF-5E75-45CF-909D-571ABC65AC3D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Funda.ApiClient.IntegrationTests", "Funda.ApiClient.IntegrationTests\Funda.ApiClient.IntegrationTests.csproj", "{08747A06-7D17-4B59-936D-C43E50CE053C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Funda.ApiClient.IntegrationTests", "Funda.ApiClient.IntegrationTests\Funda.ApiClient.IntegrationTests.csproj", "{08747A06-7D17-4B59-936D-C43E50CE053C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Funda.Api", "Funda.Api\Funda.Api.csproj", "{C6E85F9F-C893-4890-AD1D-143BADF7EE82}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Funda.Common", "Funda.Common\Funda.Common.csproj", "{B0FB2F47-832C-4858-9003-0867DECDCC13}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Funda.Api.Tests", "Funda.Api.Tests\Funda.Api.Tests.csproj", "{B7EB51BB-6A01-4CA0-A6FD-AC961FC20FE8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +33,18 @@ Global
 		{08747A06-7D17-4B59-936D-C43E50CE053C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08747A06-7D17-4B59-936D-C43E50CE053C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08747A06-7D17-4B59-936D-C43E50CE053C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6E85F9F-C893-4890-AD1D-143BADF7EE82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6E85F9F-C893-4890-AD1D-143BADF7EE82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6E85F9F-C893-4890-AD1D-143BADF7EE82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6E85F9F-C893-4890-AD1D-143BADF7EE82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0FB2F47-832C-4858-9003-0867DECDCC13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0FB2F47-832C-4858-9003-0867DECDCC13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0FB2F47-832C-4858-9003-0867DECDCC13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0FB2F47-832C-4858-9003-0867DECDCC13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7EB51BB-6A01-4CA0-A6FD-AC961FC20FE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7EB51BB-6A01-4CA0-A6FD-AC961FC20FE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7EB51BB-6A01-4CA0-A6FD-AC961FC20FE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7EB51BB-6A01-4CA0-A6FD-AC961FC20FE8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

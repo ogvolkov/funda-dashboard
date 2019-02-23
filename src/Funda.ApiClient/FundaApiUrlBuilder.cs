@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text;
+using Funda.Common;
 
 namespace Funda.ApiClient
 {

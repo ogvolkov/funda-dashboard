@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Funda.ApiClient.Contracts;
+using Funda.Common;
 
 namespace Funda.ApiClient
 {

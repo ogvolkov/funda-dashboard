@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Funda.ApiClient
+namespace Funda.Common
 {
     public class Filter
     {

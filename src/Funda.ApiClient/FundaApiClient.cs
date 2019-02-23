@@ -2,6 +2,7 @@
 using System.Net.Http;
 using System.Threading.Tasks;
 using Funda.ApiClient.Contracts;
+using Funda.Common;
 using Newtonsoft.Json;
 
 namespace Funda.ApiClient

@@ -1,4 +1,4 @@
-﻿namespace Funda.ApiClient
+﻿namespace Funda.Common
 {
     public enum OfferType
     {

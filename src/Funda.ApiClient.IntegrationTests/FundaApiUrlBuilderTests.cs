@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using Funda.Common;
+using NUnit.Framework;
 
 namespace Funda.ApiClient.IntegrationTests
 {

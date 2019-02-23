@@ -5,10 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    <PackageReference Include="System.Reactive" Version="4.1.3" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Funda.ApiClient\Funda.ApiClient.csproj" />
     <ProjectReference Include="..\Funda.Common\Funda.Common.csproj" />
   </ItemGroup>
 
