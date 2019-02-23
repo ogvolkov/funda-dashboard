@@ -2,6 +2,7 @@
 using System.Net.Http;
 using System.Threading.Tasks;
 using Funda.ApiClient.Contracts;
+using Newtonsoft.Json;
 
 namespace Funda.ApiClient
 {
@@ -25,9 +26,32 @@ namespace Funda.ApiClient
             _apiKey = apiKey;
         }
 
-        public Task<OffersPage> GetOffers(int page, int pageSize, OfferType offerType, Filter filter)
+        public async Task<OffersPage> GetOffers(int page, int pageSize, OfferType offerType, Filter filter)
         {
-            throw new NotImplementedException();
+            if (filter == null)
+            {
+                throw new ArgumentNullException(nameof(filter));
+            }
+
+            if (page <= 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(page));
+            }
+
+            if (pageSize <= 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(pageSize));
+            }
+
+            string url = _apiUrlBuilder.BuildUri(_apiKey, page, pageSize, offerType, filter);
+
+            HttpResponseMessage response = await _httpClient.GetAsync(url);
+
+            response.EnsureSuccessStatusCode();
+
+            string content = await response.Content.ReadAsStringAsync();
+
+            return JsonConvert.DeserializeObject<OffersPage>(content);
         }
 
     }

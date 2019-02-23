@@ -9,6 +9,26 @@ namespace Funda.ApiClient
 
         public string BuildUri(string key, int page, int pageSize, OfferType offerType, Filter filter)
         {
+            if (string.IsNullOrWhiteSpace(key))
+            {
+                throw new ArgumentException("Value cannot be null or whitespace.", nameof(key));
+            }
+
+            if (filter == null)
+            {
+                throw new ArgumentNullException(nameof(filter));
+            }
+
+            if (page <= 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(page));
+            }
+
+            if (pageSize <= 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(pageSize));
+            }
+
             var uriBuilder = new StringBuilder();
             uriBuilder.Append(API_ROOT);
             uriBuilder.Append(key);
