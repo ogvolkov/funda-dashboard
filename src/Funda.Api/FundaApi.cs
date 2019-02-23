@@ -22,6 +22,11 @@ namespace Funda.Api
 
         public IObservable<Property> GetProperties(OfferType offerType, Filter filter, int pageSize)
         {
+            if (pageSize <= 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(pageSize));
+            }
+
             return Observable.Create<Property>(async observer =>
             {
                 int pageCount = MAX_PAGE_COUNT;

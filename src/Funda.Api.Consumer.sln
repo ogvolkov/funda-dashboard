@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2047
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Funda.Api.Consumer", "Funda.Api.Consumer\Funda.Api.Consumer.csproj", "{2CCE6E4C-152C-43ED-84E0-C644C2E1A32B}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Funda.ApiClient", "Funda.ApiClient\Funda.ApiClient.csproj", "{CA88A7FF-5E75-45CF-909D-571ABC65AC3D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Funda.ApiClient.IntegrationTests", "Funda.ApiClient.IntegrationTests\Funda.ApiClient.IntegrationTests.csproj", "{08747A06-7D17-4B59-936D-C43E50CE053C}"
@@ -13,7 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Funda.Api", "Funda.Api\Fund
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Funda.Common", "Funda.Common\Funda.Common.csproj", "{B0FB2F47-832C-4858-9003-0867DECDCC13}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Funda.Api.Tests", "Funda.Api.Tests\Funda.Api.Tests.csproj", "{B7EB51BB-6A01-4CA0-A6FD-AC961FC20FE8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Funda.Api.Tests", "Funda.Api.Tests\Funda.Api.Tests.csproj", "{B7EB51BB-6A01-4CA0-A6FD-AC961FC20FE8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Funda.Dashboard", "Funda.Dashboard\Funda.Dashboard.csproj", "{24A06E95-6C8A-4FBB-AF1A-838C88569247}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Funda.Dashboard.Tests", "Funda.Dashboard.Tests\Funda.Dashboard.Tests.csproj", "{CEDE6B6F-4089-4E3F-BDF2-5D4E84F6FB86}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +23,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2CCE6E4C-152C-43ED-84E0-C644C2E1A32B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2CCE6E4C-152C-43ED-84E0-C644C2E1A32B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2CCE6E4C-152C-43ED-84E0-C644C2E1A32B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2CCE6E4C-152C-43ED-84E0-C644C2E1A32B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CA88A7FF-5E75-45CF-909D-571ABC65AC3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CA88A7FF-5E75-45CF-909D-571ABC65AC3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA88A7FF-5E75-45CF-909D-571ABC65AC3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -45,6 +43,14 @@ Global
 		{B7EB51BB-6A01-4CA0-A6FD-AC961FC20FE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7EB51BB-6A01-4CA0-A6FD-AC961FC20FE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B7EB51BB-6A01-4CA0-A6FD-AC961FC20FE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24A06E95-6C8A-4FBB-AF1A-838C88569247}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24A06E95-6C8A-4FBB-AF1A-838C88569247}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24A06E95-6C8A-4FBB-AF1A-838C88569247}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24A06E95-6C8A-4FBB-AF1A-838C88569247}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEDE6B6F-4089-4E3F-BDF2-5D4E84F6FB86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEDE6B6F-4089-4E3F-BDF2-5D4E84F6FB86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEDE6B6F-4089-4E3F-BDF2-5D4E84F6FB86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEDE6B6F-4089-4E3F-BDF2-5D4E84F6FB86}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

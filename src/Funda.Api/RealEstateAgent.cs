@@ -23,5 +23,27 @@ namespace Funda.Api
             Id = id;
             Name = name;
         }
+
+        public override int GetHashCode()
+        {
+            return (Id, Name).GetHashCode();
+        }
+
+        public override bool Equals(object another)
+        {
+            if (another == null)
+            {
+                return false;
+            }
+
+            if (another.GetType() != GetType())
+            {
+                return false;
+            }
+
+            RealEstateAgent anotherAgent = (RealEstateAgent) another;
+
+            return Id == anotherAgent.Id && Name == anotherAgent.Name;
+        }
     }
 }
