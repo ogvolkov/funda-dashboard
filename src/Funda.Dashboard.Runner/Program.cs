@@ -17,6 +17,8 @@ namespace Funda.Dashboard.Runner
 
             var settings = GetSettings();
 
+            Dashboard dashboard;
+
             using (var serviceProvider = Configure(settings))
             {
                 var dashboardBuilder = serviceProvider.GetRequiredService<DashboardBuilder>();
@@ -24,22 +26,22 @@ namespace Funda.Dashboard.Runner
                 var stopwatch = new Stopwatch();
                 stopwatch.Start();
 
-                var dashboard = await dashboardBuilder.Build(settings.TopSize);
+                dashboard = await dashboardBuilder.Build(settings.TopSize);
 
                 Console.WriteLine("Finished building dashboard in {0} ms", stopwatch.ElapsedMilliseconds);
-
-                OutputRealEstateAgentsTable(
-                    $"Top {settings.TopSize} real state agents in Amsterdam by number of properties",
-                    dashboard.AmsterdamTop
-                );
-
-                Console.WriteLine();
-
-                OutputRealEstateAgentsTable(
-                    $"Top {settings.TopSize} real state agents in Amsterdam by number of properties with garden",
-                    dashboard.AmsterdamWithGardenTop
-                );
             }
+
+            OutputRealEstateAgentsTable(
+                $"Top {settings.TopSize} real estate agents in Amsterdam by number of properties",
+                dashboard.AmsterdamTop
+            );
+
+            Console.WriteLine();
+
+            OutputRealEstateAgentsTable(
+                $"Top {settings.TopSize} real estate agents in Amsterdam by number of properties with a garden",
+                dashboard.AmsterdamWithGardenTop
+            );
 
 #if DEBUG
             Console.ReadKey();
