@@ -48,11 +48,15 @@ namespace Funda.Dashboard.Runner
         private static void OutputRealEstateAgentsTable(string header, IEnumerable<RealEstateAgentStats> agents)
         {
             Console.WriteLine(header);
+            string format = "{0,-40} {1, 10}";
+            Console.WriteLine("-------------------------------------------------------------");
+            Console.WriteLine(format, "Real estate agent", "Number of properties");
             Console.WriteLine("-------------------------------------------------------------");
             foreach (var realEstateAgent in agents)
             {
-                Console.WriteLine($"{realEstateAgent.Name}\t\t\t{realEstateAgent.PropertiesCount} properties");
+                Console.WriteLine(format, realEstateAgent.Name, realEstateAgent.PropertiesCount);
             }
+            Console.WriteLine();
         }
 
         private static ServiceProvider Configure()
@@ -60,7 +64,7 @@ namespace Funda.Dashboard.Runner
             string apiKey = Environment.GetEnvironmentVariable("FUNDA_API_KEY");
             var fundaApiClientSettings = new FundaApiClientSettings(apiKey);
 
-            const int BATCH_SIZE = 25;
+            const int BATCH_SIZE = 1000;
             var fundaApiSettings = new FundaApiSettings(BATCH_SIZE);
 
             var services = new ServiceCollection();
