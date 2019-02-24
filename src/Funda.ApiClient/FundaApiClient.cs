@@ -9,22 +9,17 @@ namespace Funda.ApiClient
 {
     public class FundaApiClient : IFundaApiClient
     {
+        private readonly FundaApiClientSettings _settings;
+
         private readonly FundaApiUrlBuilder _apiUrlBuilder;
 
         private readonly HttpClient _httpClient;
 
-        private readonly string _apiKey;
-
-        public FundaApiClient(HttpClient httpClient, FundaApiUrlBuilder apiUrlBuilder, string apiKey)
+        public FundaApiClient(HttpClient httpClient, FundaApiUrlBuilder apiUrlBuilder, FundaApiClientSettings settings)
         {
-            if (string.IsNullOrWhiteSpace(apiKey))
-            {
-                throw new ArgumentException("Value cannot be null or whitespace.", nameof(apiKey));
-            }
-
             _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
             _apiUrlBuilder = apiUrlBuilder ?? throw new ArgumentNullException(nameof(apiUrlBuilder));
-            _apiKey = apiKey;
+            _settings = settings ?? throw new ArgumentNullException(nameof(settings));
         }
 
         public async Task<OffersPage> GetOffers(int page, int pageSize, OfferType offerType, Filter filter)
@@ -44,7 +39,7 @@ namespace Funda.ApiClient
                 throw new ArgumentOutOfRangeException(nameof(pageSize));
             }
 
-            string url = _apiUrlBuilder.BuildUri(_apiKey, page, pageSize, offerType, filter);
+            string url = _apiUrlBuilder.BuildUri(_settings.ApiKey, page, pageSize, offerType, filter);
 
             HttpResponseMessage response = await _httpClient.GetAsync(url);
 

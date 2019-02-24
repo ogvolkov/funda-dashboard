@@ -91,7 +91,7 @@ namespace Funda.Dashboard.Tests
             public IDictionary<(OfferType, Filter), IEnumerable<Property>> Setup { get; }
                 = new Dictionary<(OfferType, Filter), IEnumerable<Property>>();
 
-            public IObservable<Property> GetProperties(OfferType offerType, Filter filter, int pageSize)
+            public IObservable<Property> GetProperties(OfferType offerType, Filter filter)
             {
                 var cannedValue = Setup.FirstOrDefault(
                     it => it.Key.Item1 == offerType

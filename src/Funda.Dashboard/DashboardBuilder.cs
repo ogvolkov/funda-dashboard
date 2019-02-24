@@ -14,7 +14,7 @@ namespace Funda.Dashboard
 
         private readonly int _pageSize;
 
-        public DashboardBuilder(IFundaApi fundaApi, int pageSize)
+        public DashboardBuilder(IFundaApi fundaApi, int pageSize = 400)
         {
             if (pageSize <= 0)
             {
@@ -36,7 +36,7 @@ namespace Funda.Dashboard
 
         private async Task<List<RealEstateAgentStats>> GetTop(Filter filter, int topSize)
         {
-            var properties = await _fundaApi.GetProperties(OfferType.Buy, filter, _pageSize).ToList();
+            var properties = await _fundaApi.GetProperties(OfferType.Buy, filter).ToList();
             return CalculateTop(properties, topSize);
         }
 

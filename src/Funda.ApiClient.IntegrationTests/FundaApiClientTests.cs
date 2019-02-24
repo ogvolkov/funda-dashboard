@@ -16,7 +16,10 @@ namespace Funda.ApiClient.IntegrationTests
         public void SetUp()
         {
             string apiKey = Environment.GetEnvironmentVariable("FUNDA_API_KEY");
-            _apiClient = new FundaApiClient(new HttpClient(), new FundaApiUrlBuilder(), apiKey);
+
+            var settings = new FundaApiClientSettings(apiKey);
+
+            _apiClient = new FundaApiClient(new HttpClient(), new FundaApiUrlBuilder(), settings);
         }
 
         [Test]

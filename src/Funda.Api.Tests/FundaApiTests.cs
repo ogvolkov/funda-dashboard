@@ -20,7 +20,7 @@ namespace Funda.Api.Tests
         public void SetUp()
         {
             _apiClientStub = new ApiClientStub();
-            _fundaApi = new FundaApi(_apiClientStub);
+            _fundaApi = new FundaApi(_apiClientStub, new FundaApiSettings(2));
         }
 
         [Test]
@@ -37,7 +37,7 @@ namespace Funda.Api.Tests
             );
 
             // act 
-            var results = _fundaApi.GetProperties(OfferType.Buy, new Filter("Amsterdam"), 2).ToList();
+            var results = _fundaApi.GetProperties(OfferType.Buy, new Filter("Amsterdam")).ToList();
 
             // assert
             results.Subscribe(properties =>
@@ -54,7 +54,7 @@ namespace Funda.Api.Tests
             _apiClientStub.Setup(new[] { object1 });
 
             // act 
-            var results = _fundaApi.GetProperties(OfferType.Buy, new Filter("Amsterdam"), 2).ToList();
+            var results = _fundaApi.GetProperties(OfferType.Buy, new Filter("Amsterdam")).ToList();
 
             // assert
             results.Subscribe(properties =>
@@ -71,7 +71,7 @@ namespace Funda.Api.Tests
             _apiClientStub.Setup(new[] { object1 });
 
             // act 
-            var results = _fundaApi.GetProperties(OfferType.Buy, new Filter("Amsterdam"), 2).ToList();
+            var results = _fundaApi.GetProperties(OfferType.Buy, new Filter("Amsterdam")).ToList();
 
             // assert
             results.Subscribe(properties =>

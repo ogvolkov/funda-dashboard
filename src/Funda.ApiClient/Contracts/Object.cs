@@ -7,7 +7,7 @@ namespace Funda.ApiClient.Contracts
         public string AangebodenSindsTekst { get; set; }
         public DateTime AanmeldDatum { get; set; }
         public object AantalBeschikbaar { get; set; }
-        public int AantalKamers { get; set; }
+        public int? AantalKamers { get; set; }
         public object AantalKavels { get; set; }
         public string Aanvaarding { get; set; }
         public string Adres { get; set; }
@@ -43,9 +43,9 @@ namespace Funda.ApiClient.Contracts
         public bool IsVerhuurd { get; set; }
         public bool IsVerkocht { get; set; }
         public bool IsVerkochtOfVerhuurd { get; set; }
-        public int Koopprijs { get; set; }
+        public int? Koopprijs { get; set; }
         public string KoopprijsFormaat { get; set; }
-        public int KoopprijsTot { get; set; }
+        public int? KoopprijsTot { get; set; }
         public int MakelaarId { get; set; }
         public string MakelaarNaam { get; set; }
         public string MobileURL { get; set; }
@@ -77,8 +77,8 @@ namespace Funda.ApiClient.Contracts
         public string VerkoopStatus { get; set; }
         public float WGS84_X { get; set; }
         public float WGS84_Y { get; set; }
-        public int WoonOppervlakteTot { get; set; }
-        public int Woonoppervlakte { get; set; }
+        public int? WoonOppervlakteTot { get; set; }
+        public int? Woonoppervlakte { get; set; }
         public string Woonplaats { get; set; }
         public int[] ZoekType { get; set; }
     }

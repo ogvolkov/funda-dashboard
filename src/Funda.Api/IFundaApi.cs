@@ -5,6 +5,6 @@ namespace Funda.Api
 {
     public interface IFundaApi
     {
-        IObservable<Property> GetProperties(OfferType offerType, Filter filter, int pageSize);
+        IObservable<Property> GetProperties(OfferType offerType, Filter filter);
     }
 }

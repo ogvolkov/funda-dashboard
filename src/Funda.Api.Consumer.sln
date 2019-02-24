@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Funda.Dashboard", "Funda.Da
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Funda.Dashboard.Tests", "Funda.Dashboard.Tests\Funda.Dashboard.Tests.csproj", "{CEDE6B6F-4089-4E3F-BDF2-5D4E84F6FB86}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Funda.Dashboard.Runner", "Funda.Dashboard.Runner\Funda.Dashboard.Runner.csproj", "{65EB3315-CAD9-414A-BF7A-9465557F0129}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{CEDE6B6F-4089-4E3F-BDF2-5D4E84F6FB86}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CEDE6B6F-4089-4E3F-BDF2-5D4E84F6FB86}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CEDE6B6F-4089-4E3F-BDF2-5D4E84F6FB86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65EB3315-CAD9-414A-BF7A-9465557F0129}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65EB3315-CAD9-414A-BF7A-9465557F0129}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65EB3315-CAD9-414A-BF7A-9465557F0129}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65EB3315-CAD9-414A-BF7A-9465557F0129}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
