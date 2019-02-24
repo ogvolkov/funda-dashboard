@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Funda.ApiClient;
 using Funda.ApiClient.Contracts;
 using Funda.Common;
+using Microsoft.Extensions.Logging.Abstractions;
 using NUnit.Framework;
 using Object = Funda.ApiClient.Contracts.Object;
 
@@ -20,7 +21,7 @@ namespace Funda.Api.Tests
         public void SetUp()
         {
             _apiClientStub = new ApiClientStub();
-            _fundaApi = new FundaApi(_apiClientStub, new FundaApiSettings(2));
+            _fundaApi = new FundaApi(_apiClientStub, new FundaApiSettings(2), new NullLogger<FundaApi>());
         }
 
         [Test]

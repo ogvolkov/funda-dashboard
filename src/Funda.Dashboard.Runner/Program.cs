@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using Funda.Api;
 using Funda.ApiClient;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
 namespace Funda.Dashboard.Runner
 {
@@ -18,7 +21,13 @@ namespace Funda.Dashboard.Runner
                 var dashboardBuilder = serviceProvider.GetRequiredService<DashboardBuilder>();
 
                 int topSize = 10;
+
+                var stopwatch = new Stopwatch();
+                stopwatch.Start();
+
                 var dashboard = await dashboardBuilder.Build(topSize);
+
+                Console.WriteLine("Finished building dashboard in {0} ms", stopwatch.ElapsedMilliseconds);
 
                 OutputRealEstateAgentsTable(
                     $"Top {topSize} real state agents in Amsterdam by number of properties",
@@ -69,6 +78,8 @@ namespace Funda.Dashboard.Runner
             services.AddTransient<IFundaApi, FundaApi>();
 
             services.AddTransient<DashboardBuilder>();
+
+            services.AddLogging(builder => builder.AddConsole());
 
             return services.BuildServiceProvider();
         }
