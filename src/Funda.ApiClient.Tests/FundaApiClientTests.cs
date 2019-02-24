@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Funda.Common;
 using NUnit.Framework;
 
-namespace Funda.ApiClient.IntegrationTests
+namespace Funda.ApiClient.Tests
 {
     [TestFixture]
     public class FundaApiClientTests

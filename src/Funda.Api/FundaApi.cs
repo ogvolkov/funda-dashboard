@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Reactive.Linq;
+using Funda.Api.Contracts;
 using Funda.ApiClient;
 using Funda.Common;
 using Microsoft.Extensions.Logging;
@@ -7,7 +8,7 @@ using Object = Funda.ApiClient.Contracts.Object;
 
 namespace Funda.Api
 {
-    public class FundaApi: IFundaApi
+    public class FundaApi : IFundaApi
     {
         private readonly ILogger<FundaApi> _logger;
 
@@ -19,7 +20,7 @@ namespace Funda.Api
         {
             _fundaApiClient = fundaApiClient ?? throw new ArgumentNullException(nameof(fundaApiClient));
             _settings = settings ?? throw new ArgumentNullException(nameof(settings));
-            _logger = logger;
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         public IObservable<Property> GetProperties(OfferType offerType, Filter filter)
@@ -38,10 +39,10 @@ namespace Funda.Api
                     _logger.LogInformation("Received page {0}, total pages {1}", page, totalPages);
                     _logger.LogInformation("Received {0} properties", pageResults.Objects.Length);
 
-                    foreach (Object o in pageResults.Objects)
+                    foreach (Object realEstateObject in pageResults.Objects)
                     {
-                        var realEstateAgent = new RealEstateAgent(o.MakelaarId, o.MakelaarNaam);
-                        var property = new Property(o.Adres, realEstateAgent);
+                        var realEstateAgent = new RealEstateAgent(realEstateObject.MakelaarId, realEstateObject.MakelaarNaam);
+                        var property = new Property(realEstateObject.Adres, realEstateAgent);
 
                         observer.OnNext(property);
                     }

@@ -65,10 +65,11 @@ namespace Funda.ApiClient
             {
                 case OfferType.Buy:
                     return "koop";
-                // etc.
+
+                // and so on
 
                 default:
-                    throw new NotImplementedException($"Offer type {offerType} is not supported as a query string parameter");
+                    throw new NotSupportedException($"Offer type {offerType} is not supported as a query string parameter");
             }
         }
     }

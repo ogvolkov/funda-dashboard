@@ -1,7 +1,7 @@
 ﻿using Funda.Common;
 using NUnit.Framework;
 
-namespace Funda.ApiClient.IntegrationTests
+namespace Funda.ApiClient.Tests
 {
     [TestFixture]
     public class FundaApiUrlBuilderTests

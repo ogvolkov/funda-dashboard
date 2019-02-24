@@ -21,6 +21,11 @@ namespace Funda.Dashboard.Runner
             RetryPolicySettings retrySettings
         )
         {
+            if (topSize <= 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(topSize));
+            }
+
             TopSize = topSize;
             ApiClientSettings = apiClientSettings ?? throw new ArgumentNullException(nameof(apiClientSettings));
             ApiSettings = apiSettings ?? throw new ArgumentNullException(nameof(apiSettings));

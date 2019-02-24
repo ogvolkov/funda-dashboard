@@ -64,17 +64,23 @@ namespace Funda.Dashboard.Runner
         private static Settings GetSettings()
         {
             string apiKey = Environment.GetEnvironmentVariable("FUNDA_API_KEY");
+
             var apiClientSettings = new FundaApiClientSettings(apiKey);
 
             const int BATCH_SIZE = 25;
             const int MAX_PAGES_TO_RETRIEVE = 5000;
+
             var apiSettings = new FundaApiSettings(BATCH_SIZE, MAX_PAGES_TO_RETRIEVE);
 
-            var retryPolicySettings = new RetryPolicySettings(2.0f, 0.5f, 5);
+            const float DELAY = 2.0f;
+            const float JITTER = 0.5f;
+            const int RETRY_COUNT = 7;
 
-            int topSize = 10;
+            var retryPolicySettings = new RetryPolicySettings(DELAY, JITTER, RETRY_COUNT);
 
-            return new Settings(topSize, apiClientSettings, apiSettings, retryPolicySettings);
+            const int TOP_SIZE = 10;
+
+            return new Settings(TOP_SIZE, apiClientSettings, apiSettings, retryPolicySettings);
         }
 
         private static ServiceProvider Configure(Settings settings)

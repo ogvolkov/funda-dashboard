@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AssemblyName>Funda.ApiClient.Tests</AssemblyName>
+    <RootNamespace>Funda.ApiClient.Tests</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Funda.Api
+namespace Funda.Api.Contracts
 {
     public class Property
     {

@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27703.2047
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Funda.ApiClient", "Funda.ApiClient\Funda.ApiClient.csproj", "{CA88A7FF-5E75-45CF-909D-571ABC65AC3D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Funda.ApiClient.IntegrationTests", "Funda.ApiClient.IntegrationTests\Funda.ApiClient.IntegrationTests.csproj", "{08747A06-7D17-4B59-936D-C43E50CE053C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Funda.ApiClient.Tests", "Funda.ApiClient.Tests\Funda.ApiClient.Tests.csproj", "{08747A06-7D17-4B59-936D-C43E50CE053C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Funda.Api", "Funda.Api\Funda.Api.csproj", "{C6E85F9F-C893-4890-AD1D-143BADF7EE82}"
 EndProject

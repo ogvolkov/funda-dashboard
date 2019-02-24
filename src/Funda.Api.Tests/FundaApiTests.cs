@@ -1,5 +1,4 @@
-﻿using System;
-using System.Reactive.Linq;
+﻿using System.Reactive.Linq;
 using System.Threading.Tasks;
 using Funda.ApiClient;
 using Funda.ApiClient.Contracts;
@@ -25,7 +24,7 @@ namespace Funda.Api.Tests
         }
 
         [Test]
-        public void GetsAllPages()
+        public async Task GetsAllPages()
         {
             // arrange
             var object1 = CreateObject();
@@ -38,16 +37,14 @@ namespace Funda.Api.Tests
             );
 
             // act 
-            var results = _fundaApi.GetProperties(OfferType.Buy, new Filter("Amsterdam")).ToList();
+            var properties = await _fundaApi.GetProperties(OfferType.Buy, new Filter("Amsterdam")).ToList();
 
             // assert
-            results.Subscribe(properties =>
-                Assert.That(properties.Count, Is.EqualTo(3))
-           );
+            Assert.That(properties.Count, Is.EqualTo(3));
         }
 
         [Test]
-        public void ReturnsPropertyAddress()
+        public async Task ReturnsPropertyAddress()
         {
             // arrange
             var object1 = CreateObject();
@@ -55,16 +52,14 @@ namespace Funda.Api.Tests
             _apiClientStub.Setup(new[] { object1 });
 
             // act 
-            var results = _fundaApi.GetProperties(OfferType.Buy, new Filter("Amsterdam")).ToList();
+            var properties = await _fundaApi.GetProperties(OfferType.Buy, new Filter("Amsterdam")).ToList();
 
             // assert
-            results.Subscribe(properties =>
-                Assert.That(properties[0].Address, Is.EqualTo(object1.Adres))
-            );
+            Assert.That(properties[0].Address, Is.EqualTo(object1.Adres));
         }
 
         [Test]
-        public void ReturnsRealEstateAgent()
+        public async Task ReturnsRealEstateAgent()
         {
             // arrange
             var object1 = CreateObject();
@@ -72,16 +67,12 @@ namespace Funda.Api.Tests
             _apiClientStub.Setup(new[] { object1 });
 
             // act 
-            var results = _fundaApi.GetProperties(OfferType.Buy, new Filter("Amsterdam")).ToList();
+            var properties = await _fundaApi.GetProperties(OfferType.Buy, new Filter("Amsterdam")).ToList();
 
             // assert
-            results.Subscribe(properties =>
-                {
-                    Assert.That(properties[0].RealEstateAgent, Is.Not.Null);
-                    Assert.That(properties[0].RealEstateAgent.Id, Is.EqualTo(object1.MakelaarId));
-                    Assert.That(properties[0].RealEstateAgent.Name, Is.EqualTo(object1.MakelaarNaam));
-                }
-            );
+            Assert.That(properties[0].RealEstateAgent, Is.Not.Null);
+            Assert.That(properties[0].RealEstateAgent.Id, Is.EqualTo(object1.MakelaarId));
+            Assert.That(properties[0].RealEstateAgent.Name, Is.EqualTo(object1.MakelaarNaam));
         }
 
         private class ApiClientStub : IFundaApiClient
@@ -108,11 +99,11 @@ namespace Funda.Api.Tests
             }
         }
 
-        private static int _makelaarId = 1;
+        private static int _agentId = 1;
 
         private Object CreateObject()
         {
-            int id = _makelaarId++;
+            int id = _agentId++;
 
             return new Object
             {

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reactive.Linq;
 using System.Threading.Tasks;
 using Funda.Api;
+using Funda.Api.Contracts;
 using Funda.Common;
 
 namespace Funda.Dashboard
