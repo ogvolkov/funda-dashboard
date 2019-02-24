@@ -21,7 +21,7 @@ namespace Funda.Api.Tests
         public void SetUp()
         {
             _apiClientStub = new ApiClientStub();
-            _fundaApi = new FundaApi(_apiClientStub, new FundaApiSettings(2), new NullLogger<FundaApi>());
+            _fundaApi = new FundaApi(_apiClientStub, new FundaApiSettings(2, 1000), new NullLogger<FundaApi>());
         }
 
         [Test]

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using Funda.Api;
@@ -64,8 +63,9 @@ namespace Funda.Dashboard.Runner
             string apiKey = Environment.GetEnvironmentVariable("FUNDA_API_KEY");
             var fundaApiClientSettings = new FundaApiClientSettings(apiKey);
 
-            const int BATCH_SIZE = 1000;
-            var fundaApiSettings = new FundaApiSettings(BATCH_SIZE);
+            const int BATCH_SIZE = 25;
+            const int MAX_PAGES_TO_RETRIEVE = 5000;
+            var fundaApiSettings = new FundaApiSettings(BATCH_SIZE, MAX_PAGES_TO_RETRIEVE);
 
             var services = new ServiceCollection();
 
