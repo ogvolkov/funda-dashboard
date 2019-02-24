@@ -12,17 +12,9 @@ namespace Funda.Dashboard
     {
         private readonly IFundaApi _fundaApi;
 
-        private readonly int _pageSize;
-
-        public DashboardBuilder(IFundaApi fundaApi, int pageSize = 400)
+        public DashboardBuilder(IFundaApi fundaApi)
         {
-            if (pageSize <= 0)
-            {
-                throw new ArgumentOutOfRangeException(nameof(pageSize));
-            }
-
             _fundaApi = fundaApi ?? throw new ArgumentNullException(nameof(fundaApi));
-            _pageSize = pageSize;
         }
 
         public async Task<Dashboard> Build(int topSize)

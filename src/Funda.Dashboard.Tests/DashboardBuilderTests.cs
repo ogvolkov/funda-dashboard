@@ -21,7 +21,7 @@ namespace Funda.Dashboard.Tests
         public void SetUp()
         {
             _fundaApiStub = new FundaApiStub();
-            _dashboardBuilder = new DashboardBuilder(_fundaApiStub, 2);
+            _dashboardBuilder = new DashboardBuilder(_fundaApiStub);
         }
 
         [Test]
