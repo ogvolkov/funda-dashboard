@@ -15,26 +15,28 @@ namespace Funda.Dashboard.Runner
         {
             Console.WriteLine("Starting...");
 
-            using (var serviceProvider = Configure())
+            var settings = GetSettings();
+
+            using (var serviceProvider = Configure(settings))
             {
                 var dashboardBuilder = serviceProvider.GetRequiredService<DashboardBuilder>();
-
-                int topSize = 10;
 
                 var stopwatch = new Stopwatch();
                 stopwatch.Start();
 
-                var dashboard = await dashboardBuilder.Build(topSize);
+                var dashboard = await dashboardBuilder.Build(settings.TopSize);
 
                 Console.WriteLine("Finished building dashboard in {0} ms", stopwatch.ElapsedMilliseconds);
 
                 OutputRealEstateAgentsTable(
-                    $"Top {topSize} real state agents in Amsterdam by number of properties",
+                    $"Top {settings.TopSize} real state agents in Amsterdam by number of properties",
                     dashboard.AmsterdamTop
                 );
 
+                Console.WriteLine();
+
                 OutputRealEstateAgentsTable(
-                    $"Top {topSize} real state agents in Amsterdam by number of properties with garden",
+                    $"Top {settings.TopSize} real state agents in Amsterdam by number of properties with garden",
                     dashboard.AmsterdamWithGardenTop
                 );
             }
@@ -55,29 +57,40 @@ namespace Funda.Dashboard.Runner
             {
                 Console.WriteLine(format, realEstateAgent.Name, realEstateAgent.PropertiesCount);
             }
-            Console.WriteLine();
         }
 
-        private static ServiceProvider Configure()
+        private static Settings GetSettings()
         {
             string apiKey = Environment.GetEnvironmentVariable("FUNDA_API_KEY");
-            var fundaApiClientSettings = new FundaApiClientSettings(apiKey);
+            var apiClientSettings = new FundaApiClientSettings(apiKey);
 
             const int BATCH_SIZE = 25;
             const int MAX_PAGES_TO_RETRIEVE = 5000;
-            var fundaApiSettings = new FundaApiSettings(BATCH_SIZE, MAX_PAGES_TO_RETRIEVE);
+            var apiSettings = new FundaApiSettings(BATCH_SIZE, MAX_PAGES_TO_RETRIEVE);
 
+            var retryPolicySettings = new RetryPolicySettings(2.0f, 0.5f, 5);
+
+            int topSize = 10;
+
+            return new Settings(topSize, apiClientSettings, apiSettings, retryPolicySettings);
+        }
+
+        private static ServiceProvider Configure(Settings settings)
+        {
             var services = new ServiceCollection();
 
-            services.AddSingleton(fundaApiClientSettings);
+            services.AddSingleton(settings.ApiClientSettings);
+            services.AddSingleton(settings.ApiSettings);
+            services.AddSingleton(settings.RetrySettings);
 
             services.AddTransient<FundaApiUrlBuilder>();
 
             services.AddTransient<IFundaApiClient, FundaApiClient>();
 
-            services.AddHttpClient<IFundaApiClient, FundaApiClient>();
+            services.AddSingleton<RetryPolicyProvider>();
 
-            services.AddSingleton(fundaApiSettings);
+            services.AddHttpClient<IFundaApiClient, FundaApiClient>()
+                .AddPolicyHandler((provider, message) => provider.GetService<RetryPolicyProvider>().Get());
 
             services.AddTransient<IFundaApi, FundaApi>();
 
